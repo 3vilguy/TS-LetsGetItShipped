@@ -21,17 +21,20 @@ function onWindowResize() {
     app.view.style.width = width + "px";
     app.view.style.height = height + "px";
 
-    app.stage.x = (window.innerWidth - WIDTH) * 0.5;
+    // Make sure we always fit the screen vertically
+    var scale = height/HEIGHT;
+    app.stage.scale.set(scale, scale);
+
+    // Center stage horizontally
+    app.stage.x = (window.innerWidth - WIDTH * scale) * 0.5;
 }
 
 init();
 
 function init() {
-    console.log("INIT!");
-
     const style = new PIXI.TextStyle({
         fill: "white",
-        fontSize: 140,
+        fontSize: 220,
         fontWeight: "bold",
         strokeThickness: 4
     });
