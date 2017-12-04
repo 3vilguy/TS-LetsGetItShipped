@@ -28,6 +28,20 @@ init();
 
 function init() {
     console.log("INIT!");
+
+    const style = new PIXI.TextStyle({
+        fill: "white",
+        fontSize: 140,
+        fontWeight: "bold",
+        strokeThickness: 4
+    });
+    const text = new PIXI.Text('Let\'s get it\nSHIPPED!', style);
+    text.anchor.set(0.5, 0.5);
+    text.x = WIDTH * 0.5;
+    text.y = HEIGHT * 0.5;
+
+    app.stage.addChild(text);
+    
     app.ticker.add(update);
 }
 
