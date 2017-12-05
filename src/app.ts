@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
 
+import GameController from './controller/GameController';
 import { WIDTH, HEIGHT, BG_COLOR } from './constants/RendererConstants';
 
 // Init Pixi stuff
@@ -39,36 +40,7 @@ function onAssetsLoaded() {
 }
 
 function init() {
-    // Add tmp bg
-    const bg = new PIXI.Graphics();
-    bg.beginFill(0xFF0000);
-    bg.drawRect(0, 0, WIDTH, HEIGHT);
-    bg.endFill();
-    app.stage.addChild(bg);
-    
-    // Add squirrel
-    var squirrel = new PIXI.Sprite(
-        PIXI.loader.resources[require('../assets/images/IntroSquirrel.jpg')].texture
-    );
-    squirrel.anchor.set(0.5, 0.5);
-    squirrel.scale.set(0.5, 0.5);
-    squirrel.x = WIDTH * 0.85;
-    squirrel.y = HEIGHT * 0.7;
-    app.stage.addChild(squirrel);
-
-    // Add simple text
-    const style = new PIXI.TextStyle({
-        fill: "white",
-        fontSize: 140,
-        fontWeight: "bold",
-        strokeThickness: 4
-    });
-    const text = new PIXI.Text('Let\'s get it\nSHIPPED!', style);
-    text.anchor.set(0.5, 0.5);
-    text.x = WIDTH * 0.5;
-    text.y = HEIGHT * 0.5;
-    app.stage.addChild(text);
-    
+    var gameController:GameController = new GameController(app.stage);
     app.ticker.add(update);
 }
 
