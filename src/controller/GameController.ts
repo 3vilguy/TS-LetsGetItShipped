@@ -20,6 +20,8 @@ export default class GameController {
     private handleKeyPress = (event:KeyboardEvent) => {
         window.removeEventListener('keyup', this.handleKeyPress);
 
+        // Switch from init screen to game
         this.mainView.hideInitScreen();
+        this.mainView.addGameScreen();
     }
 }
