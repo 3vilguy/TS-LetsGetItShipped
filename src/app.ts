@@ -29,12 +29,37 @@ function onWindowResize() {
     app.stage.x = (window.innerWidth - WIDTH * scale) * 0.5;
 }
 
-init();
+// Load assets
+PIXI.loader
+    .add(require('../assets/images/IntroSquirrel.jpg'))
+    .load(onAssetsLoaded);
+
+function onAssetsLoaded() {
+    init();
+}
 
 function init() {
+    // Add tmp bg
+    const bg = new PIXI.Graphics();
+    bg.beginFill(0xFF0000);
+    bg.drawRect(0, 0, WIDTH, HEIGHT);
+    bg.endFill();
+    app.stage.addChild(bg);
+    
+    // Add squirrel
+    var squirrel = new PIXI.Sprite(
+        PIXI.loader.resources[require('../assets/images/IntroSquirrel.jpg')].texture
+    );
+    squirrel.anchor.set(0.5, 0.5);
+    squirrel.scale.set(0.5, 0.5);
+    squirrel.x = WIDTH * 0.85;
+    squirrel.y = HEIGHT * 0.7;
+    app.stage.addChild(squirrel);
+
+    // Add simple text
     const style = new PIXI.TextStyle({
         fill: "white",
-        fontSize: 220,
+        fontSize: 140,
         fontWeight: "bold",
         strokeThickness: 4
     });
@@ -42,7 +67,6 @@ function init() {
     text.anchor.set(0.5, 0.5);
     text.x = WIDTH * 0.5;
     text.y = HEIGHT * 0.5;
-
     app.stage.addChild(text);
     
     app.ticker.add(update);
