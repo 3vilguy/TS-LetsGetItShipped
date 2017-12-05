@@ -28,4 +28,9 @@ export default class MainView extends Container {
         this.initScreen = new InitScreen();
         this.addChild(this.initScreen);
     }
+
+
+    public hideInitScreen() {
+        this.initScreen.visible = false;
+    }
 }
