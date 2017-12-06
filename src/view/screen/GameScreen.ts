@@ -24,7 +24,6 @@ export default class GameScreen extends Container {
         });
         this.header = new PIXI.Text('Pick a task:', headerStyle);
         this.header.x = (WIDTH - this.header.width) * 0.5;
-        this.addChild(this.header);
 
         // Add task options
         const menuStyle = headerStyle.clone();
@@ -33,15 +32,28 @@ export default class GameScreen extends Container {
         this.menu = new PIXI.Text('1 - EZ\n2 - Medium\n3 - Mediumer', menuStyle);
         this.menu.x = this.header.x;
         this.menu.y = this.header.y + this.header.height;
+    }
+
+    private addTaskPicker() {
+        this.addChild(this.header);
         this.addChild(this.menu);
     }
 
+    private removeTaskPicker() {
+        this.removeChild(this.header);
+        this.removeChild(this.menu);
+    }
+
     public start() {
+        this.addTaskPicker();
         // Pick the task first
         window.addEventListener('keyup', this.handlePickTask);
     }
 
     private handlePickTask = (event:KeyboardEvent) => {
+        // console.log(event.char, event.charCode, event.code);
+        // console.log(event.key, event.keyCode);
+
         var weGood = true;
         this.diffLvl = 0;
         switch(event.key)
@@ -72,9 +84,7 @@ export default class GameScreen extends Container {
             window.removeEventListener('keyup', this.handlePickTask);
             console.log("Picked lvl => " + this.diffLvl);
 
-            this.removeChild(this.header);
-            this.removeChild(this.menu);
-
+            this.removeTaskPicker();
             this.startMashing();
         }
     }
@@ -93,6 +103,8 @@ export default class GameScreen extends Container {
             if(this.count >= this.maxCount) {
                 console.log("Task done");
                 window.removeEventListener('keyup', this.handleKeyMashing);
+
+                this.start();
             }
         }
     }
