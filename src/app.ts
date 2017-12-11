@@ -32,7 +32,15 @@ function onWindowResize() {
 
 // Load assets
 PIXI.loader
-    .add(require('../assets/images/IntroSquirrel.jpg'))
+    .add(require('../assets/images/intro/pattern.png'))
+    .add([
+        require('../assets/images/intro/S.png'),
+        require('../assets/images/intro/H.png'),
+        require('../assets/images/intro/I.png'),
+        require('../assets/images/intro/P.png'),
+        require('../assets/images/intro/T.png'),
+        require('../assets/images/intro/ship-it-squirrel.png')
+    ])
     .load(onAssetsLoaded);
 
 function onAssetsLoaded() {
