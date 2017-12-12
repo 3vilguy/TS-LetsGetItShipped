@@ -47,7 +47,8 @@ PIXI.loader
         require('../assets/images/desk/screen01.png'),
         require('../assets/images/desk/screen02.png'),
         require('../assets/images/desk/glare01.png'),
-        require('../assets/images/desk/glare02.png')
+        require('../assets/images/desk/glare02.png'),
+        require('../assets/images/desk/bottle.png')
     ])
     .load(onAssetsLoaded);
 

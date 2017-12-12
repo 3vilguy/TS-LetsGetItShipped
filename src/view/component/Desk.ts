@@ -14,7 +14,8 @@ export default class Desk extends Container {
         this.addChild(desk);
 
         var cables = new PIXI.Sprite(PIXI.loader.resources[require('../../../assets/images/desk/cables.png')].texture);
-        cables.x = (desk.width - cables.width) * 0.5;
+        cables.x = 350;
+        cables.y = 20;
         this.addChild(cables);
 
 
@@ -24,7 +25,7 @@ export default class Desk extends Container {
         this.addChild(monitorLeft);
         
         var monitorMid = new MonitorSmall();
-        monitorMid.x = (desk.width - monitorMid.width) * 0.5;
+        monitorMid.x = 495;
         monitorMid.y = -140;
         this.addChild(monitorMid);
 
@@ -32,5 +33,11 @@ export default class Desk extends Container {
         monitorRight.x = 815;
         monitorRight.y = monitorLeft.y;
         this.addChild(monitorRight);
+
+
+        var bottle = new PIXI.Sprite(PIXI.loader.resources[require('../../../assets/images/desk/bottle.png')].texture);
+        bottle.x = 430;
+        bottle.y = -30;
+        this.addChild(bottle);
     }
 }
