@@ -45,6 +45,10 @@ export default class MainView extends Container {
     public addGameScreen() {
         this.addChild(this.gameScreen);
         this.gameScreen.visible = true;
-        this.gameScreen.start();
+    }
+
+
+    get GAME_SCREEN():GameScreen {
+        return this.gameScreen;
     }
 }
