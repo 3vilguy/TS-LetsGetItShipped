@@ -1,5 +1,7 @@
 import { Container } from 'pixi.js';
 
+import MonitorSmall from './MonitorSmall';
+
 export default class Desk extends Container {
     constructor() {
         super();
@@ -13,5 +15,10 @@ export default class Desk extends Container {
         var cables = new PIXI.Sprite(PIXI.loader.resources[require('../../../assets/images/desk/cables.png')].texture);
         cables.x = (desk.width - cables.width) * 0.5;
         this.addChild(cables);
+
+        var monitorMid = new MonitorSmall();
+        monitorMid.x = (desk.width - monitorMid.width) * 0.5;
+        monitorMid.y = -140;
+        this.addChild(monitorMid);
     }
 }

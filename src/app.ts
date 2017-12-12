@@ -43,7 +43,9 @@ PIXI.loader
     ])
     .add([
         require('../assets/images/desk/desk.png'),
-        require('../assets/images/desk/cables.png')
+        require('../assets/images/desk/cables.png'),
+        require('../assets/images/desk/screen02.png'),
+        require('../assets/images/desk/glare02.png')
     ])
     .load(onAssetsLoaded);
 
