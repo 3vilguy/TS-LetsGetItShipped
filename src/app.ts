@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 
-import GameController from './controller/GameController';
+import MainController from './controller/MainController';
 import { WIDTH, HEIGHT, BG_COLOR } from './constants/RendererConstants';
 
 // Init Pixi stuff
@@ -57,7 +57,7 @@ function onAssetsLoaded() {
 }
 
 function init() {
-    var gameController:GameController = new GameController(app.stage);
+    var gameController:MainController = new MainController(app.stage);
     app.ticker.add(update);
 }
 

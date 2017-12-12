@@ -1,6 +1,6 @@
 import MainView from '../view/MainView';
 
-export default class GameController {
+export default class MainController {
     private stage : PIXI.Container;
     private mainView : MainView;
 
