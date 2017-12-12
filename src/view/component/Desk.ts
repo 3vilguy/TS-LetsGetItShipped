@@ -1,6 +1,7 @@
 import { Container } from 'pixi.js';
 
 import MonitorSmall from './MonitorSmall';
+import MonitorNormal from './MonitorNormal';
 
 export default class Desk extends Container {
     constructor() {
@@ -16,6 +17,12 @@ export default class Desk extends Container {
         cables.x = (desk.width - cables.width) * 0.5;
         this.addChild(cables);
 
+
+        var monitorLeft = new MonitorNormal();
+        monitorLeft.x = 140;
+        monitorLeft.y = -170;
+        this.addChild(monitorLeft);
+        
         var monitorMid = new MonitorSmall();
         monitorMid.x = (desk.width - monitorMid.width) * 0.5;
         monitorMid.y = -140;
