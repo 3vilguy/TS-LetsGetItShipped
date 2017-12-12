@@ -27,5 +27,10 @@ export default class Desk extends Container {
         monitorMid.x = (desk.width - monitorMid.width) * 0.5;
         monitorMid.y = -140;
         this.addChild(monitorMid);
+
+        var monitorRight = new MonitorNormal();
+        monitorRight.x = 815;
+        monitorRight.y = monitorLeft.y;
+        this.addChild(monitorRight);
     }
 }
