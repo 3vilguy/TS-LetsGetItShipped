@@ -41,7 +41,10 @@ PIXI.loader
         require('../assets/images/intro/T.png'),
         require('../assets/images/intro/ship-it-squirrel.png')
     ])
-    .add(require('../assets/images/desk/desk.png'))
+    .add([
+        require('../assets/images/desk/desk.png'),
+        require('../assets/images/desk/cables.png')
+    ])
     .load(onAssetsLoaded);
 
 function onAssetsLoaded() {
