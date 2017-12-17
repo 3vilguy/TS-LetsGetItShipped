@@ -5,8 +5,8 @@ import Desk from '../component/Desk';
 import { WIDTH, HEIGHT } from '../../constants/RendererConstants';
 
 export default class GameScreen extends Container {
-    private desk:Desk;
-    private taskPicker:TaskPicker;
+    private desk : Desk;
+    private taskPicker : TaskPicker;
 
     constructor() {
         super();
@@ -25,9 +25,12 @@ export default class GameScreen extends Container {
     public start() {
         this.addChild(this.desk);
         this.addChild(this.taskPicker);
+
+        this.desk.showTasks();
     }
 
     public removeTaskPicker() {
         this.removeChild(this.taskPicker);
+        this.desk.removeTasks();
     }
 }
