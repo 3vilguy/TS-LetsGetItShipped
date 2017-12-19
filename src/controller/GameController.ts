@@ -76,7 +76,7 @@ export default class MainController {
                 console.log("Task done");
                 window.removeEventListener('keyup', this.handleKeyMashing);
 
-                this.gameScreen.start();
+                this.startGame();
             }
         }
     }
