@@ -1,4 +1,4 @@
-import { Container } from 'pixi.js';
+import { Container, Sprite } from 'pixi.js';
 
 import MonitorSmall from './MonitorSmall';
 import MonitorNormal from './MonitorNormal';
@@ -12,10 +12,10 @@ export default class Desk extends Container {
     }
 
     private init() {
-        var desk = new PIXI.Sprite(PIXI.loader.resources[require('../../../assets/images/desk/desk.png')].texture);
+        var desk = new Sprite(PIXI.loader.resources[require('../../../assets/images/desk/desk.png')].texture);
         this.addChild(desk);
 
-        var cables = new PIXI.Sprite(PIXI.loader.resources[require('../../../assets/images/desk/cables.png')].texture);
+        var cables = new Sprite(PIXI.loader.resources[require('../../../assets/images/desk/cables.png')].texture);
         cables.x = 350;
         cables.y = 20;
         this.addChild(cables);
@@ -38,7 +38,7 @@ export default class Desk extends Container {
         this.addChild(monitorRight);
 
 
-        var bottle = new PIXI.Sprite(PIXI.loader.resources[require('../../../assets/images/desk/bottle.png')].texture);
+        var bottle = new Sprite(PIXI.loader.resources[require('../../../assets/images/desk/bottle.png')].texture);
         bottle.x = 430;
         bottle.y = -30;
         this.addChild(bottle);
