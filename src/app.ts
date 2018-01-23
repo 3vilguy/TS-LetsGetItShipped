@@ -50,6 +50,10 @@ PIXI.loader
         require('../assets/images/desk/glare02.png'),
         require('../assets/images/desk/bottle.png')
     ])
+    .add([
+        require('../assets/images/ui/key.png'),
+        require('../assets/images/ui/keyPressed.png')
+    ])
     .load(onAssetsLoaded);
 
 function onAssetsLoaded() {

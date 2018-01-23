@@ -50,6 +50,7 @@ export default class MainController {
             console.log("Picked lvl => " + this.diffLvl);
 
             this.gameScreen.removeTaskPicker();
+            this.gameScreen.showKeyBar();
             this.startMashing();
         }
     }
@@ -64,6 +65,7 @@ export default class MainController {
         console.log("RANDOM KEY => " + randKey);
         this.randKey = "Key" + randKey;
         this.count = 0;
+        this.gameScreen.setKeyChar(randKey);
         window.addEventListener('keyup', this.handleKeyMashing);
     }
 
