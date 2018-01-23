@@ -4,7 +4,7 @@ import MonitorSmall from './MonitorSmall';
 import MonitorNormal from './MonitorNormal';
 
 export default class Desk extends Container {
-    private monitorMid : MonitorSmall;
+    private monitorLeft : MonitorNormal;
 
     constructor() {
         super();
@@ -21,19 +21,20 @@ export default class Desk extends Container {
         this.addChild(cables);
 
 
-        var monitorLeft = new MonitorNormal();
-        monitorLeft.x = 140;
-        monitorLeft.y = -170;
-        this.addChild(monitorLeft);
+        this.monitorLeft = new MonitorNormal();
+        this.monitorLeft.x = 140;
+        this.monitorLeft.y = -170;
+        this.monitorLeft.addMenu();
+        this.addChild(this.monitorLeft);
         
-        this.monitorMid = new MonitorSmall();
-        this.monitorMid.x = 495;
-        this.monitorMid.y = -140;
-        this.addChild(this.monitorMid);
+        var monitorMid = new MonitorSmall();
+        monitorMid.x = 495;
+        monitorMid.y = -140;
+        this.addChild(monitorMid);
 
         var monitorRight = new MonitorNormal();
         monitorRight.x = 815;
-        monitorRight.y = monitorLeft.y;
+        monitorRight.y = this.monitorLeft.y;
         this.addChild(monitorRight);
 
 
@@ -44,10 +45,10 @@ export default class Desk extends Container {
     }
 
     public showTasks() {
-        this.monitorMid.showTasks();
+        this.monitorLeft.showTasks();
     }
 
     public removeTasks() {
-        this.monitorMid.removeTasks();
+        this.monitorLeft.removeTasks();
     }
 }
