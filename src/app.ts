@@ -54,6 +54,37 @@ PIXI.loader
         require('../assets/images/ui/key.png'),
         require('../assets/images/ui/keyPressed.png')
     ])
+    .add([
+        require('../assets/images/dave/dave 2_00000.png'),
+        require('../assets/images/dave/dave 2_00001.png'),
+        require('../assets/images/dave/dave 2_00002.png'),
+        require('../assets/images/dave/dave 2_00003.png'),
+        require('../assets/images/dave/dave 2_00004.png'),
+        require('../assets/images/dave/dave 2_00005.png'),
+        require('../assets/images/dave/dave 2_00006.png'),
+        require('../assets/images/dave/dave 2_00007.png'),
+        require('../assets/images/dave/dave 2_00008.png'),
+        require('../assets/images/dave/dave 2_00009.png'),
+        require('../assets/images/dave/dave 2_00010.png'),
+        require('../assets/images/dave/dave 2_00011.png'),
+        require('../assets/images/dave/dave 2_00012.png'),
+        require('../assets/images/dave/dave 2_00013.png'),
+        require('../assets/images/dave/dave 2_00014.png'),
+        require('../assets/images/dave/dave 2_00015.png'),
+        require('../assets/images/dave/dave 2_00016.png'),
+        require('../assets/images/dave/dave 2_00017.png'),
+        require('../assets/images/dave/dave 2_00018.png'),
+        require('../assets/images/dave/dave 2_00019.png'),
+        require('../assets/images/dave/dave 2_00020.png'),
+        require('../assets/images/dave/dave 2_00021.png'),
+        require('../assets/images/dave/dave 2_00022.png'),
+        require('../assets/images/dave/dave 2_00023.png'),
+        require('../assets/images/dave/dave 2_00024.png'),
+        require('../assets/images/dave/dave 2_00025.png'),
+        require('../assets/images/dave/dave 2_00026.png'),
+        require('../assets/images/dave/dave 2_00027.png'),
+        require('../assets/images/dave/dave 2_00028.png')
+    ])
     .load(onAssetsLoaded);
 
 function onAssetsLoaded() {
