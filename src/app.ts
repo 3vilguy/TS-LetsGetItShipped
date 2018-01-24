@@ -42,6 +42,10 @@ PIXI.loader
         require('../assets/images/intro/ship-it-squirrel.png')
     ])
     .add([
+        require('../assets/images/extras/Joe.png'),
+        require('../assets/images/extras/Mensah.png')
+    ])
+    .add([
         require('../assets/images/desk/desk.png'),
         require('../assets/images/desk/cables.png'),
         require('../assets/images/desk/screen01.png'),
