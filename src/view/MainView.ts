@@ -38,7 +38,12 @@ export default class MainView extends Container {
     }
 
 
+    public showInitScreenInstruction() {
+        this.initScreen.showInstructions();
+    }
+
     public hideInitScreen() {
+        this.initScreen.hideInstructions();
         this.initScreen.visible = false;
     }
 

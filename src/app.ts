@@ -1,7 +1,11 @@
 import * as PIXI from 'pixi.js';
+import { TweenLite, Linear } from 'gsap';
 
 import MainController from './controller/MainController';
 import { WIDTH, HEIGHT, BG_COLOR } from './constants/RendererConstants';
+
+// Set default Easing for Tweens
+TweenLite.defaultEase = Linear.easeNone;
 
 // Init Pixi stuff
 const app = new PIXI.Application(WIDTH, HEIGHT, {backgroundColor: BG_COLOR});
