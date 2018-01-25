@@ -41,6 +41,10 @@ export default class GameScreen extends Container {
         this.keyBar.setKeyChar(key);
     }
 
+    public getKeyChar() {
+        return this.keyBar.getKeyChar();
+    }
+
     public start() {
         this.removeChild(this.keyBar);
         this.addChild(this.desk);

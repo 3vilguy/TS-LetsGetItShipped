@@ -29,7 +29,7 @@ export default class MonitorNormal extends Container {
             fontSize: 30
         });
 
-        this.menu = new Text('1 - Fun Friday\n2 - Medium\n3 - Mediumer', menuStyle);
+        this.menu = new Text('1 - Fun Friday\n2 - Medium\n3 - Pickle Rick', menuStyle);
         this.menu.x = this.glare.x + (this.glare.width - this.menu.width) * 0.5;
         this.menu.y = this.glare.y + (this.glare.height - this.menu.height) * 0.5;
     }
