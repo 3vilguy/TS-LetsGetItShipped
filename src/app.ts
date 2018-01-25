@@ -35,6 +35,17 @@ function onWindowResize() {
 }
 
 // Prepare animation arrays list
+var arr_progress_bar = [];
+for(var i = 0; i<= 100; i++) {
+    if(i < 10) {
+        arr_progress_bar.push( require('../assets/images/desk/progress/ProgressBar-00' + i + '.png') );
+    } else if(i < 100) {
+        arr_progress_bar.push( require('../assets/images/desk/progress/ProgressBar-0' + i + '.png') );
+    } else {
+        arr_progress_bar.push( require('../assets/images/desk/progress/ProgressBar-' + i + '.png') );
+    }
+}
+
 var arr_dave = [];
 for(var i = 0; i<= 28; i++) {
     if(i < 10) {
@@ -68,6 +79,7 @@ PIXI.loader
         require('../assets/images/desk/glare02.png'),
         require('../assets/images/desk/bottle.png')
     ])
+    .add(arr_progress_bar)
     .add([
         require('../assets/images/ui/key.png'),
         require('../assets/images/ui/keyPressed.png')
