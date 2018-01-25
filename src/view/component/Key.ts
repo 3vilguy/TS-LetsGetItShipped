@@ -1,4 +1,5 @@
 import { Container, Sprite, Text, TextStyle } from 'pixi.js';
+import { TweenLite } from 'gsap';
 
 export default class Key extends Container {
     private keyUp : Sprite;
@@ -31,5 +32,18 @@ export default class Key extends Container {
         this.tf.text = keyChar;
         this.tf.x = (this.keyDown.width - this.tf.width) * 0.5;
         this.tf.y = (this.keyDown.height - this.tf.height) * 0.5;
+    }
+
+    public press() {
+        this.removeChild(this.keyUp);
+        TweenLite.delayedCall(0.15, () => {
+            this.anotherStupidFunction();
+        });
+        this.addChild(this.tf);
+    }
+
+    private anotherStupidFunction() {
+        this.addChild(this.keyUp);
+        this.addChild(this.tf);
     }
 }

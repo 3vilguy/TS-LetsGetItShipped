@@ -111,7 +111,10 @@ export default class MainController {
         var randKey7 = allKeys[Math.floor(Math.random()*allKeys.length)];
         var randKey8 = allKeys[Math.floor(Math.random()*allKeys.length)];
         var randKey9 = allKeys[Math.floor(Math.random()*allKeys.length)];
-        console.log("RANDOM KEYS => " + randKey1 + " " + randKey2 + " " + randKey3);
+        console.log("RANDOM KEYS => " + randKey1 + " " + randKey2 + " " + randKey3 + " " +
+                randKey4 + " " + randKey5 + " " + randKey6 + " " +
+                randKey7 + " " + randKey8 + " " + randKey9
+        );
         this.randKeys = [
             "Key" + randKey1, "Key" + randKey2, "Key" + randKey3,
             "Key" + randKey4, "Key" + randKey5, "Key" + randKey6,
@@ -128,7 +131,10 @@ export default class MainController {
     }
 
     private handleKeyMashing = (event:KeyboardEvent) => {
+        var key = this.gameScreen.getKeyBar().getKey();
+
         if(event.code.split("Key", 2)[1] == this.gameScreen.getKeyChar()) {
+            key.press();
             this.count++;
             this.setRandomKey();
 

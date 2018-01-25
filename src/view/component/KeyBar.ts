@@ -33,4 +33,8 @@ export default class KeyBar extends Container {
     public getKeyChar() {
         return this.keyChar;
     }
+
+    public getKey() {
+        return this.key;
+    }
 }
