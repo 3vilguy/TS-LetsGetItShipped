@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import { Howl } from 'howler';
 import { TweenLite, Linear } from 'gsap';
 
 import MainController from './controller/MainController';
@@ -89,6 +90,13 @@ PIXI.loader
 
 function onAssetsLoaded() {
     init();
+
+    // Start bg sound
+    const sound = new Howl({
+        src: [require('../assets/audio/Timetravel_Mu_BaseMusic.mp3')],
+        loop: true
+    });
+    sound.play();
 }
 
 function init() {
