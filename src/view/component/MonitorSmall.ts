@@ -1,7 +1,7 @@
 import { Container, Sprite } from 'pixi.js';
 
 export default class MonitorSmall extends Container {
-    private prograssBar : PIXI.extras.AnimatedSprite;
+    private progressBar : PIXI.extras.AnimatedSprite;
 
     constructor() {
         super();
@@ -29,10 +29,14 @@ export default class MonitorSmall extends Container {
             }
         }
 
-        this.prograssBar = new PIXI.extras.AnimatedSprite(textures);
-        this.prograssBar.x = 25;
-        this.prograssBar.y = 11;
-        this.addChild(this.prograssBar);
-        this.prograssBar.play();
+        this.progressBar = new PIXI.extras.AnimatedSprite(textures);
+        this.progressBar.x = 25;
+        this.progressBar.y = 11;
+        this.addChild(this.progressBar);
+        // this.progressBar.play();
+    }
+
+    public setProgress(progress:number) {
+        this.progressBar.gotoAndStop(progress);
     }
 }

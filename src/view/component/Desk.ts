@@ -5,6 +5,7 @@ import MonitorNormal from './MonitorNormal';
 
 export default class Desk extends Container {
     private monitorLeft : MonitorNormal;
+    private monitorMid : MonitorSmall;
 
     constructor() {
         super();
@@ -20,28 +21,30 @@ export default class Desk extends Container {
         cables.y = 20;
         this.addChild(cables);
 
-
         this.monitorLeft = new MonitorNormal();
         this.monitorLeft.x = 140;
         this.monitorLeft.y = -170;
         this.monitorLeft.addMenu();
         this.addChild(this.monitorLeft);
         
-        var monitorMid = new MonitorSmall();
-        monitorMid.x = 495;
-        monitorMid.y = -140;
-        this.addChild(monitorMid);
+        this.monitorMid = new MonitorSmall();
+        this.monitorMid.x = 495;
+        this.monitorMid.y = -140;
+        this.addChild(this.monitorMid);
 
         var monitorRight = new MonitorNormal();
         monitorRight.x = 815;
         monitorRight.y = this.monitorLeft.y;
         this.addChild(monitorRight);
 
-
         var bottle = new Sprite(PIXI.loader.resources[require('../../../assets/images/desk/bottle.png')].texture);
         bottle.x = 430;
         bottle.y = -30;
         this.addChild(bottle);
+    }
+
+    public setProgress(progress:number) {
+        this.monitorMid.setProgress(progress);
     }
 
     public showTasks() {

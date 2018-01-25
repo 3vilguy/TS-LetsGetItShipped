@@ -37,6 +37,10 @@ export default class GameScreen extends Container {
         this.dave.y = HEIGHT * 0.05;
     }
 
+    public setProgress(progress:number) {
+        this.desk.setProgress(progress);
+    }
+
     public setKeyChar(key:string) {
         this.keyBar.setKeyChar(key);
     }

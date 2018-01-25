@@ -1,4 +1,5 @@
 import GameScreen from '../view/screen/GameScreen';
+import {listenerCount} from "cluster";
 
 export default class MainController {
     private gameScreen : GameScreen;
@@ -137,6 +138,9 @@ export default class MainController {
             key.press();
             this.count++;
             this.setRandomKey();
+
+            var progress =  Math.round((100 * this.count) / this.maxCount);
+            this.gameScreen.setProgress(progress);
 
             if(this.count >= this.maxCount) {
                 console.log("Task done");
