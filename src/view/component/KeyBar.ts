@@ -29,4 +29,8 @@ export default class KeyBar extends Container {
         this.keyChar = keyChar;
         this.key.setChar(this.keyChar);
     }
+
+    public getKeyChar() {
+        return this.keyChar;
+    }
 }

@@ -3,7 +3,8 @@ import GameScreen from '../view/screen/GameScreen';
 export default class MainController {
     private gameScreen : GameScreen;
     private diffLvl : number;
-    private randKey : string;
+    private randKeys : string[];
+    private selectedKey: string;
     private count : number;
     private maxCount : number;
 
@@ -56,6 +57,16 @@ export default class MainController {
     }
 
     private startMashing() {
+        if (this.diffLvl == 1) {
+            this.easyLevel();
+        } else if (this.diffLvl == 2) {
+            this.mediumLevel();
+        } else {
+            this.difficultLevel();
+        }
+    }
+
+    private easyLevel() {
         var allKeys = [
             "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
             "A", "S", "D", "F", "G", "H" ,"J", "K", "L",
@@ -63,16 +74,63 @@ export default class MainController {
         ];
         var randKey = allKeys[Math.floor(Math.random()*allKeys.length)];
         console.log("RANDOM KEY => " + randKey);
-        this.randKey = "Key" + randKey;
+        this.randKeys = ["Key" + randKey];
         this.count = 0;
-        this.gameScreen.setKeyChar(randKey);
+        this.setRandomKey();
         window.addEventListener('keyup', this.handleKeyMashing);
     }
 
+    private mediumLevel() {
+        var allKeys = [
+            "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
+            "A", "S", "D", "F", "G", "H" ,"J", "K", "L",
+            "Z", "X", "C", "V", "B", "N", "M"
+        ];
+        var randKey1 = allKeys[Math.floor(Math.random()*allKeys.length)];
+        var randKey2 = allKeys[Math.floor(Math.random()*allKeys.length)];
+        var randKey3 = allKeys[Math.floor(Math.random()*allKeys.length)];
+        console.log("RANDOM KEYS => " + randKey1 + " " + randKey2 + " " + randKey3);
+        this.randKeys = ["Key" + randKey1, "Key" + randKey2, "Key" + randKey3, ];
+        this.count = 0;
+        this.setRandomKey();
+        window.addEventListener('keyup', this.handleKeyMashing);
+    }
+
+    private difficultLevel() {
+        var allKeys = [
+            "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
+            "A", "S", "D", "F", "G", "H" ,"J", "K", "L",
+            "Z", "X", "C", "V", "B", "N", "M"
+        ];
+        var randKey1 = allKeys[Math.floor(Math.random()*allKeys.length)];
+        var randKey2 = allKeys[Math.floor(Math.random()*allKeys.length)];
+        var randKey3 = allKeys[Math.floor(Math.random()*allKeys.length)];
+        var randKey4 = allKeys[Math.floor(Math.random()*allKeys.length)];
+        var randKey5 = allKeys[Math.floor(Math.random()*allKeys.length)];
+        var randKey6 = allKeys[Math.floor(Math.random()*allKeys.length)];
+        var randKey7 = allKeys[Math.floor(Math.random()*allKeys.length)];
+        var randKey8 = allKeys[Math.floor(Math.random()*allKeys.length)];
+        var randKey9 = allKeys[Math.floor(Math.random()*allKeys.length)];
+        console.log("RANDOM KEYS => " + randKey1 + " " + randKey2 + " " + randKey3);
+        this.randKeys = [
+            "Key" + randKey1, "Key" + randKey2, "Key" + randKey3,
+            "Key" + randKey4, "Key" + randKey5, "Key" + randKey6,
+            "Key" + randKey7, "Key" + randKey8, "Key" + randKey9,
+        ];
+        this.count = 0;
+        this.setRandomKey();
+        window.addEventListener('keyup', this.handleKeyMashing);
+    }
+
+    private setRandomKey() {
+        this.selectedKey = this.randKeys[Math.floor(Math.random() * this.randKeys.length)];
+        this.gameScreen.setKeyChar(this.selectedKey.split("Key", 2)[1]);
+    }
+
     private handleKeyMashing = (event:KeyboardEvent) => {
-        console.log(event.code);
-        if(event.code == this.randKey) {
+        if(event.code.split("Key", 2)[1] == this.gameScreen.getKeyChar()) {
             this.count++;
+            this.setRandomKey();
 
             if(this.count >= this.maxCount) {
                 console.log("Task done");
