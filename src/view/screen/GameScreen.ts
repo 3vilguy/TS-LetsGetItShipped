@@ -41,6 +41,10 @@ export default class GameScreen extends Container {
         this.desk.setProgress(progress);
     }
 
+    public setPickleRickEnding() {
+        this.desk.setPickleRickEnding();
+    }
+
     public setKeyChar(key:string) {
         this.keyBar.setKeyChar(key);
     }

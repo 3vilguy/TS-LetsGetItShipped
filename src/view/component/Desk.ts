@@ -47,6 +47,10 @@ export default class Desk extends Container {
         this.monitorMid.setProgress(progress);
     }
 
+    public setPickleRickEnding() {
+        this.monitorMid.setPickleRickEnding();
+    }
+
     public showTasks() {
         this.monitorLeft.showTasks();
     }

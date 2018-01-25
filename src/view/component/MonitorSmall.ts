@@ -33,10 +33,13 @@ export default class MonitorSmall extends Container {
         this.progressBar.x = 25;
         this.progressBar.y = 11;
         this.addChild(this.progressBar);
-        // this.progressBar.play();
     }
 
     public setProgress(progress:number) {
         this.progressBar.gotoAndStop(progress);
+    }
+
+    public setPickleRickEnding() {
+        this.progressBar.play();
     }
 }
