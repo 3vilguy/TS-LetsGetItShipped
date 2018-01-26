@@ -94,6 +94,7 @@ export default class MainController {
         console.log("RANDOM KEY => " + randKey);
         this.randKeys = ["Key" + randKey];
         this.count = 0;
+        this.gameScreen.setProgress(0);
         this.setRandomKey();
         window.addEventListener('keyup', this.handleKeyMashing);
     }
@@ -111,6 +112,7 @@ export default class MainController {
         console.log("RANDOM KEYS => " + randKey1 + " " + randKey2 + " " + randKey3);
         this.randKeys = ["Key" + randKey1, "Key" + randKey2, "Key" + randKey3, ];
         this.count = 0;
+        this.gameScreen.setProgress(0);
         this.setRandomKey();
         window.addEventListener('keyup', this.handleKeyMashing);
     }
@@ -141,6 +143,7 @@ export default class MainController {
             "Key" + randKey7, "Key" + randKey8, "Key" + randKey9,
         ];
         this.count = 0;
+        this.gameScreen.setProgress(0);
         this.setRandomKey();
         window.addEventListener('keyup', this.handleKeyMashing);
     }
