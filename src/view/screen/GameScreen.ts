@@ -7,6 +7,8 @@ import KeyBar from '../component/KeyBar';
 import { WIDTH, HEIGHT } from '../../constants/RendererConstants';
 
 export default class GameScreen extends Container {
+    private layerBot : Container;
+    private layerTop : Container;
     private keyBar : KeyBar;
     private desk : Desk;
     private dave : Dave;
@@ -18,6 +20,13 @@ export default class GameScreen extends Container {
     }
 
     private init() {
+        // Making containers, so we can layer things like we want
+        this.layerBot = new Container();
+        this.layerTop = new Container();
+        this.addChild(this.layerBot);
+        this.addChild(this.layerTop);
+
+
         // Add bar with key to press
         this.keyBar = new KeyBar();
         this.keyBar.x = WIDTH * 0.5;
@@ -25,7 +34,7 @@ export default class GameScreen extends Container {
 
         // Add extras layer
         this.extrasLayer = new Extras();
-        this.addChild(this.extrasLayer);
+        this.layerBot.addChild(this.extrasLayer);
 
         // Add the desk
         this.desk = new Desk();
@@ -59,8 +68,8 @@ export default class GameScreen extends Container {
     }
 
     public start() {
-        this.removeChild(this.keyBar);
-        this.addChild(this.desk);
+        this.layerTop.removeChild(this.keyBar);
+        this.layerBot.addChild(this.desk);
         this.desk.showTasks();
         this.showDavid();
     }
@@ -70,11 +79,11 @@ export default class GameScreen extends Container {
     }
 
     public showKeyBar() {
-        this.addChild(this.keyBar);
+        this.layerTop.addChild(this.keyBar);
     }
 
     public showDavid() {
-        this.addChild(this.dave);
+        this.layerBot.addChild(this.dave);
         // this.dave.playAnimation();
     }
 }
