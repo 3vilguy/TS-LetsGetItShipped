@@ -41,6 +41,11 @@ export default class Desk extends Container {
         bottle.x = 430;
         bottle.y = -30;
         this.addChild(bottle);
+
+        var bat = new Sprite(PIXI.loader.resources[require('../../../assets/images/desk/bat.png')].texture);
+        bat.x = 850;
+        bat.y = 45;
+        this.addChild(bat);
     }
 
     public setProgress(progress:number) {

@@ -87,7 +87,8 @@ PIXI.loader
         require('../assets/images/desk/screen02.png'),
         require('../assets/images/desk/glare01.png'),
         require('../assets/images/desk/glare02.png'),
-        require('../assets/images/desk/bottle.png')
+        require('../assets/images/desk/bottle.png'),
+        require('../assets/images/desk/bat.png')
     ])
     .add(arr_progress_bar)
     .add(arr_pickle)
