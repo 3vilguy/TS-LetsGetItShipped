@@ -39,6 +39,7 @@ export default class GameScreen extends Container {
 
     public setProgress(progress:number) {
         this.desk.setProgress(progress);
+        this.dave.showTyping();
     }
 
     public setPickleRickEnding() {
@@ -74,6 +75,6 @@ export default class GameScreen extends Container {
 
     public showDavid() {
         this.addChild(this.dave);
-        this.dave.playAnimation();
+        // this.dave.playAnimation();
     }
 }

@@ -2,6 +2,7 @@ import { Container } from 'pixi.js';
 
 export default class Dave extends Container {
     private mc : PIXI.extras.AnimatedSprite;
+    private isTyping : boolean = false;
 
     constructor() {
         super();
@@ -20,10 +21,28 @@ export default class Dave extends Container {
         }
 
         this.mc = new PIXI.extras.AnimatedSprite(textures);
+        this.mc.animationSpeed = 0.6;
+        this.mc.loop = false;
+        this.mc.onComplete = this.onAnimationComplete;
         this.addChild(this.mc);
     }
 
     public playAnimation() {
         this.mc.play();
+    }
+
+    private onAnimationComplete = () => {
+        if(this.isTyping) {
+            this.isTyping = false;
+            this.mc.gotoAndPlay(0);
+        }
+    }
+
+    public showTyping() {
+        if(this.mc.playing) {
+            this.isTyping = true;
+        } else {
+            this.mc.gotoAndPlay(0);
+        }
     }
 }
