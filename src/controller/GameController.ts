@@ -1,5 +1,5 @@
+import { Howl } from 'howler';
 import GameScreen from '../view/screen/GameScreen';
-import {listenerCount} from "cluster";
 
 export default class MainController {
     private gameScreen : GameScreen;
@@ -8,9 +8,13 @@ export default class MainController {
     private selectedKey: string;
     private count : number;
     private maxCount : number;
+    private sndShipIt : Howl;
 
     constructor(gameScreen:GameScreen) {
         this.gameScreen = gameScreen;
+        this.sndShipIt = new Howl({
+            src: [require('../../assets/audio/ShipIt-2.ogg')]
+        });
     }
 
     public startGame() {
@@ -144,6 +148,7 @@ export default class MainController {
 
             if(this.count >= this.maxCount) {
                 console.log("Task done");
+                this.sndShipIt.play();
                 window.removeEventListener('keyup', this.handleKeyMashing);
 
                 if (this.diffLvl == 3) {
