@@ -1,5 +1,5 @@
 import { Container, Sprite, Text, TextStyle } from 'pixi.js';
-import { TweenLite } from 'gsap';
+import { TweenLite, Back } from 'gsap';
 
 export default class Squirrel extends Container {
     private squirrel : Sprite;
@@ -61,8 +61,8 @@ export default class Squirrel extends Container {
         var stayTime = 0.8;
 
         TweenLite.to(this, moveLeftTime, {x: startingX - this.width});
-        TweenLite.to(this.tfShip.scale, tfScaleTime, {x: 1, y: 1, delay: moveLeftTime});
-        TweenLite.to(this.tfIt.scale, tfScaleTime, {x: 1, y: 1, delay: moveLeftTime + tfScaleTime + tfDelayTime});
+        TweenLite.to(this.tfShip.scale, tfScaleTime, {x: 1, y: 1, delay: moveLeftTime, ease: Back.easeOut});
+        TweenLite.to(this.tfIt.scale, tfScaleTime, {x: 1, y: 1, delay: moveLeftTime + tfScaleTime + tfDelayTime, ease: Back.easeOut});
         TweenLite.to(this, moveLeftTime, {x: startingX, delay: stayTime});
     }
 }
