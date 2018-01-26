@@ -9,11 +9,23 @@ export default class MainController {
     private count : number;
     private maxCount : number;
     private sndShipIt : Howl;
+    private whateverRick : Howl;
+    private tinyRick : Howl;
+    private pickleRick : Howl;
 
     constructor(gameScreen:GameScreen) {
         this.gameScreen = gameScreen;
         this.sndShipIt = new Howl({
             src: [require('../../assets/audio/ShipIt-2.ogg')]
+        });
+        this.whateverRick = new Howl({
+            src: [require('../../assets/audio/whatever_rick.mp3')]
+        });
+        this.tinyRick = new Howl({
+            src: [require('../../assets/audio/tiny_rick.mp3')]
+        });
+        this.pickleRick = new Howl({
+            src: [require('../../assets/audio/pickle_rick.mp3')]
         });
     }
 
@@ -59,7 +71,7 @@ export default class MainController {
             this.gameScreen.showKeyBar();
             this.startMashing();
         }
-    }
+    };
 
     private startMashing() {
         if (this.diffLvl == 1) {
@@ -72,6 +84,7 @@ export default class MainController {
     }
 
     private easyLevel() {
+        this.whateverRick.play();
         var allKeys = [
             "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
             "A", "S", "D", "F", "G", "H" ,"J", "K", "L",
@@ -86,6 +99,7 @@ export default class MainController {
     }
 
     private mediumLevel() {
+        this.tinyRick.play();
         var allKeys = [
             "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
             "A", "S", "D", "F", "G", "H" ,"J", "K", "L",
@@ -102,6 +116,7 @@ export default class MainController {
     }
 
     private difficultLevel() {
+        this.pickleRick.play();
         var allKeys = [
             "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
             "A", "S", "D", "F", "G", "H" ,"J", "K", "L",
