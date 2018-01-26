@@ -19,10 +19,10 @@ export default class MainController {
             src: [require('../../assets/audio/ShipIt-2.ogg')]
         });
         this.whateverRick = new Howl({
-            src: [require('../../assets/audio/whatever_rick.mp3')]
+            src: [require('../../assets/audio/GetOuttaHere.ogg')]
         });
         this.tinyRick = new Howl({
-            src: [require('../../assets/audio/tiny_rick.mp3')]
+            src: [require('../../assets/audio/whatever_rick.mp3')]
         });
         this.pickleRick = new Howl({
             src: [require('../../assets/audio/pickle_rick.mp3')]
