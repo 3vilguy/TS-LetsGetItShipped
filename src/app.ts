@@ -93,6 +93,7 @@ PIXI.loader
     .add(arr_progress_bar)
     .add(arr_pickle)
     .add([
+        require('../assets/images/ui/chatBubble.png'),
         require('../assets/images/ui/key.png'),
         require('../assets/images/ui/keyPressed.png')
     ])
