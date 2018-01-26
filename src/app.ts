@@ -47,6 +47,15 @@ for(var i = 0; i<= 100; i++) {
     }
 }
 
+var arr_pickle = [];
+for(var i = 0; i<= 57; i++) {
+    if(i < 10) {
+        arr_pickle.push( require('../assets/images/desk/pickle/Pickle_Rick_0' + i + '.png') );
+    } else {
+        arr_pickle.push( require('../assets/images/desk/pickle/Pickle_Rick_' + i + '.png') );
+    }
+}
+
 var arr_dave = [];
 for(var i = 0; i<= 28; i++) {
     if(i < 10) {
@@ -81,6 +90,7 @@ PIXI.loader
         require('../assets/images/desk/bottle.png')
     ])
     .add(arr_progress_bar)
+    .add(arr_pickle)
     .add([
         require('../assets/images/ui/key.png'),
         require('../assets/images/ui/keyPressed.png')

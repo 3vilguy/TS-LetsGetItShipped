@@ -2,6 +2,7 @@ import { Container, Sprite } from 'pixi.js';
 
 export default class MonitorSmall extends Container {
     private progressBar : PIXI.extras.AnimatedSprite;
+    private over9000 : PIXI.extras.AnimatedSprite;
 
     constructor() {
         super();
@@ -18,28 +19,50 @@ export default class MonitorSmall extends Container {
         glare.alpha = 0.4;
         this.addChild(glare);
 
-        var textures = [];
+
+        var textures_pb = [];
         for(var i = 0; i<= 100; i++) {
             if(i < 10) {
-                textures.push( PIXI.loader.resources[require('../../../assets/images/desk/progress/ProgressBar-00' + i + '.png')].texture );
+                textures_pb.push( PIXI.loader.resources[require('../../../assets/images/desk/progress/ProgressBar-00' + i + '.png')].texture );
             } else if(i < 100) {
-                textures.push( PIXI.loader.resources[require('../../../assets/images/desk/progress/ProgressBar-0' + i + '.png')].texture );
+                textures_pb.push( PIXI.loader.resources[require('../../../assets/images/desk/progress/ProgressBar-0' + i + '.png')].texture );
             } else {
-                textures.push( PIXI.loader.resources[require('../../../assets/images/desk/progress/ProgressBar-' + i + '.png')].texture );
+                textures_pb.push( PIXI.loader.resources[require('../../../assets/images/desk/progress/ProgressBar-' + i + '.png')].texture );
             }
         }
 
-        this.progressBar = new PIXI.extras.AnimatedSprite(textures);
+        this.progressBar = new PIXI.extras.AnimatedSprite(textures_pb);
         this.progressBar.x = 25;
         this.progressBar.y = 11;
         this.addChild(this.progressBar);
+
+
+        var textures_9000 = [];
+        for(var i = 0; i<= 57; i++) {
+            if(i < 10) {
+                textures_9000.push( PIXI.loader.resources[require('../../../assets/images/desk/pickle/Pickle_Rick_0' + i + '.png')].texture );
+            } else {
+                textures_9000.push( PIXI.loader.resources[require('../../../assets/images/desk/pickle/Pickle_Rick_' + i + '.png')].texture );
+            }
+        }
+
+        this.over9000 = new PIXI.extras.AnimatedSprite(textures_9000);
+        this.over9000.x = -78;
+        this.over9000.y = -280
+        this.over9000.alpha = 0.6;
+        this.over9000.visible = false;
+        this.addChild(this.over9000);
     }
 
     public setProgress(progress:number) {
         this.progressBar.gotoAndStop(progress);
+        this.over9000.visible = false;
+        this.over9000.gotoAndStop(0);
     }
 
     public setPickleRickEnding() {
         this.progressBar.play();
+        this.over9000.visible = true;
+        this.over9000.play();
     }
 }
