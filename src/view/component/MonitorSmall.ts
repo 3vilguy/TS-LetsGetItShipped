@@ -20,6 +20,22 @@ export default class MonitorSmall extends Container {
         this.addChild(glare);
 
 
+        var textures_9000 = [];
+        for(var i = 0; i<= 57; i++) {
+            if(i < 10) {
+                textures_9000.push( PIXI.loader.resources[require('../../../assets/images/desk/pickle/Pickle_Rick_0' + i + '.png')].texture );
+            } else {
+                textures_9000.push( PIXI.loader.resources[require('../../../assets/images/desk/pickle/Pickle_Rick_' + i + '.png')].texture );
+            }
+        }
+
+        this.over9000 = new PIXI.extras.AnimatedSprite(textures_9000);
+        this.over9000.x = -78;
+        this.over9000.y = -280
+        this.over9000.visible = false;
+        this.addChild(this.over9000);
+
+
         var textures_pb = [];
         for(var i = 0; i<= 100; i++) {
             if(i < 10) {
@@ -35,23 +51,6 @@ export default class MonitorSmall extends Container {
         this.progressBar.x = 25;
         this.progressBar.y = 11;
         this.addChild(this.progressBar);
-
-
-        var textures_9000 = [];
-        for(var i = 0; i<= 57; i++) {
-            if(i < 10) {
-                textures_9000.push( PIXI.loader.resources[require('../../../assets/images/desk/pickle/Pickle_Rick_0' + i + '.png')].texture );
-            } else {
-                textures_9000.push( PIXI.loader.resources[require('../../../assets/images/desk/pickle/Pickle_Rick_' + i + '.png')].texture );
-            }
-        }
-
-        this.over9000 = new PIXI.extras.AnimatedSprite(textures_9000);
-        this.over9000.x = -78;
-        this.over9000.y = -280
-        this.over9000.alpha = 0.6;
-        this.over9000.visible = false;
-        this.addChild(this.over9000);
     }
 
     public setProgress(progress:number) {

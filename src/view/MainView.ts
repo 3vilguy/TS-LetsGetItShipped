@@ -14,7 +14,7 @@ export default class MainView extends Container {
     }
 
     private init() {
-        this.addTmpBg();
+        // this.addTmpBg();
         this.addInitScreen();
         this.initGameScren();
     }
