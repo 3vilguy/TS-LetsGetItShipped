@@ -167,6 +167,7 @@ export default class MainController {
             if(this.count >= this.maxCount) {
                 console.log("Task done");
                 this.sndShipIt.play();
+                this.gameScreen.showSquirrelAnimation();
                 window.removeEventListener('keyup', this.handleKeyMashing);
 
                 if (this.diffLvl == 3) {

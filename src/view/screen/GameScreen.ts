@@ -4,6 +4,7 @@ import Dave from '../component/Dave';
 import Desk from '../component/Desk';
 import Extras from '../component/Extras';
 import KeyBar from '../component/KeyBar';
+import Squirrel from '../component/Squirrel';
 import { WIDTH, HEIGHT } from '../../constants/RendererConstants';
 
 export default class GameScreen extends Container {
@@ -13,6 +14,7 @@ export default class GameScreen extends Container {
     private desk : Desk;
     private dave : Dave;
     private extrasLayer : Extras;
+    private squirrel : Squirrel;
 
     constructor() {
         super();
@@ -44,6 +46,12 @@ export default class GameScreen extends Container {
         // Add animated David :D
         this.dave = new Dave();
         this.dave.y = HEIGHT * 0.05;
+
+        // Add SHIP IT! suirrel
+        this.squirrel = new Squirrel();
+        this.squirrel.x = window.innerWidth - 100;
+        this.squirrel.y = HEIGHT - this.squirrel.height;
+        // console.log(this.squirrel.getGlobalPosition());
     }
 
     public setProgress(progress:number) {
@@ -72,6 +80,10 @@ export default class GameScreen extends Container {
         this.layerBot.addChild(this.desk);
         this.desk.showTasks();
         this.showDavid();
+
+        // MEGA HACK to position squirrel right after right edge of the screen
+        this.squirrel.x = (window.innerWidth - this.parent.parent.x) / this.parent.parent.scale.x;
+        this.layerTop.addChild(this.squirrel);
     }
 
     public removeTaskPicker() {
@@ -85,5 +97,9 @@ export default class GameScreen extends Container {
     public showDavid() {
         this.layerBot.addChild(this.dave);
         // this.dave.playAnimation();
+    }
+
+    public showSquirrelAnimation() {
+        this.squirrel.showAnimation();
     }
 }
