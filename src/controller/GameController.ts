@@ -44,7 +44,7 @@ export default class MainController {
             case "1":
                 console.log("EZ");
                 this.diffLvl = 1;
-                this.maxCount = 5;
+                this.maxCount = 10;
                 break;
             case "2":
                 console.log("Medium");
