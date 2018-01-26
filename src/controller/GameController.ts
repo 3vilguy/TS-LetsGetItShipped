@@ -146,7 +146,7 @@ export default class MainController {
                 console.log("Task done");
                 window.removeEventListener('keyup', this.handleKeyMashing);
 
-                if (this.diffLvl = 3) {
+                if (this.diffLvl == 3) {
                     this.gameScreen.setPickleRickEnding();
                 }
 
